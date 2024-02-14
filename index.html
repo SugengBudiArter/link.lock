@@ -20,20 +20,7 @@
   <script type="text/javascript" src="api.js"></script>
   <script type="text/javascript" src="index.js"> </script>
 
-  <script> 
-  function myFunction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-  }
-  </script>
 
-
-
-  
 </head>
 
 <body onload="main()">
@@ -44,7 +31,7 @@
 
     <p>This application is entirely programmed in JavaScript. This was done intentionally, so that all encryption and decryption happens client-side. This means the code runs as a distributed application, relying only on GitHub Pages for infrastructure. It also means that no data about locked links is ever stored on a server. The code is designed to be auditable so users can investigate what is happening behind the scenes.</p>
 
-    <p>If you still want to run the application, I encourage you to clone the <a href="https://github.com/jstrieb/link-lock">source code on GitHub</a>. That way you can disable JavaScript only for trusted files on your local machine.</p>
+    <p>If you still want to run the application, I encourage you to clone the <a href="https://github.com/SugengBudiArter/link.lock">source code on GitHub</a>. That way you can disable JavaScript only for trusted files on your local machine.</p>
   </div>
   </noscript>
 
@@ -54,25 +41,8 @@
 
     <hr />
 
-    <label for="password">masukan password di dalam sini</label>
-    <!--<input type="password" id="password" autofocus />-->
-
-    <div class="field has-addons">
-        <div class="control is-expanded">
-        <input v-if="showPassword" type="text" id="password" class="input" v-model="password" />
-        <input v-else type="password" id="password" class="input" v-model="password">
-       </div>
-
-       <div class="control">
-         <button class="button" @click="toggleShow"><span class="icon is-small is-right">
-         <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
-       </span>
-        </button>
-      </div>
-
-    </div>
-    
-
+    <label for="password">Masukan Password Didalam Sini</label>
+    <input type="password" id="password" autofocus />
 
     <button id="unlockbutton">Buka Link / Unlock Link</button>
   </div>
@@ -81,33 +51,8 @@
 
   <!-- Display errors in a big red box -->
   <div class="error red-border" style="display: none">
-    <p id="errortext">Error</p>
-    <button onclick="main()">Try again</button>
-    <a href="https://jstrieb.github.io/link-lock"><button>Lock a link</button></a>
-    <a href="https://jstrieb.github.io/link-lock/decrypt/" id="no-redirect" target="_blank"><button>Decrypt without redirect</button></a>
-    <a href="https://jstrieb.github.io/link-lock/hidden/" id="hidden" target="_blank"><button>Create hidden bookmark</button></a>
+    <p id="errortext">KATA SANDI SALAH...!!!!</p>
+    <button onclick="main()">COBA LAGI</button>
   </div>
 </body>
-
-<script>
-  export default {
-    data() {
-      return {
-        showPassword: false,
-        password: null
-      };
-    },
-    computed: {
-      buttonLabel() {
-        return (this.showPassword) ? "Hide" : "Show";
-      }
-    },
-    methods: {
-      toggleShow() {
-        this.showPassword = !this.showPassword;
-      }
-    }
-  };
-  </script>
-
 </html>
