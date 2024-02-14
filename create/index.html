@@ -68,6 +68,9 @@ function onScreen() {
   // Setelah enkripsi selesai, geser fokus ke elemen output
   outputElement.focus();
   outputElement.select();
+  
+  // Gulir layar ke elemen output
+  outputElement.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 }
 
 </script>
