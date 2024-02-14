@@ -31,19 +31,7 @@
   }
   </script>
 
-<script>
-  document.getElementById("showPasswordToggle").addEventListener("change", function() {
-  var toggleHandle = document.getElementById("toggleHandle");
-  if (this.checked) {
-    toggleHandle.style.left = "22px";
-    toggleHandle.style.backgroundColor = "green"; // Change color when checked
-  } else {
-    toggleHandle.style.left = "2px";
-    toggleHandle.style.backgroundColor = "red"; // Change color when unchecked
-  }
-  myFunction();
-});
-</script>
+
 
   
 </head>
@@ -68,18 +56,35 @@
 
     <label for="password">masukan password di dalam sini</label>
     <input type="password" value="" id="password" autofocus />
+
+    <div class="split-row" style="display: flex; align-items: center; justify-content: space-between;">
+      <input type="checkbox" id="showPasswordToggle" style="display: none;">
+      <label for="showPasswordToggle" style="margin: 0; cursor: pointer;">
+        <div style="width: 40px; height: 20px; background-color: #ccc; position: relative; border-radius: 10px; padding: 2px;">
+          <div id="toggleHandle" style="width: 16px; height: 16px; background-color: #fff; border-radius: 50%; position: absolute; left: 2px;"></div>
+        </div>
+      </label>
+      <label for="showPasswordToggle" style="margin: 0;">Lihat Password</label>
+    </div>
+
+    <script>
+      document.getElementById("showPasswordToggle").addEventListener("change", function() {
+      var toggleHandle = document.getElementById("toggleHandle");
+      if (this.checked) {
+        toggleHandle.style.left = "22px";
+        toggleHandle.style.backgroundColor = "green"; // Change color when checked
+      } else {
+        toggleHandle.style.left = "2px";
+        toggleHandle.style.backgroundColor = "red"; // Change color when unchecked
+      }
+      myFunction();
+    });
+    </script>
+
     <button id="unlockbutton">Buka Link / Unlock Link</button>
   </div>
 
-  <div class="split-row" style="display: flex; align-items: center; justify-content: space-between;">
-    <input type="checkbox" id="showPasswordToggle" style="display: none;">
-    <label for="showPasswordToggle" style="margin: 0; cursor: pointer;">
-      <div style="width: 40px; height: 20px; background-color: #ccc; position: relative; border-radius: 10px; padding: 2px;">
-        <div id="toggleHandle" style="width: 16px; height: 16px; background-color: #fff; border-radius: 50%; position: absolute; left: 2px;"></div>
-      </div>
-    </label>
-    <label for="showPasswordToggle" style="margin: 0;">Lihat Password</label>
-  </div>
+
 
   <!-- Display errors in a big red box -->
   <div class="error red-border" style="display: none">
