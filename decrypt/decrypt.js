@@ -1,7 +1,3 @@
-/**
- * Created by Jacob Strieb
- * May 2020
- */
 
 
 
@@ -116,6 +112,6 @@ function onCopy(id) {
 function main() {
   if (window.location.hash) {
     document.querySelector("#encrypted-url").value =
-      `https://jstrieb.github.io/link-lock/${window.location.hash}`;
+      `https://github.com/SugengBudiArter/link.lock/${window.location.hash}`;
   }
 }
