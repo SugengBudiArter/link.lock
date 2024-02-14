@@ -55,31 +55,24 @@
     <hr />
 
     <label for="password">masukan password di dalam sini</label>
-    <input type="password" value="" id="password" autofocus />
+    <!--<input type="password" id="password" autofocus />-->
 
-    <div class="split-row" style="display: flex; align-items: center; justify-content: space-between;">
-      <input type="checkbox" id="showPasswordToggle" style="display: none;">
-      <label for="showPasswordToggle" style="margin: 0; cursor: pointer;">
-        <div style="width: 40px; height: 20px; background-color: #ccc; position: relative; border-radius: 10px; padding: 2px;">
-          <div id="toggleHandle" style="width: 16px; height: 16px; background-color: #fff; border-radius: 50%; position: absolute; left: 2px;"></div>
-        </div>
-      </label>
-      <label for="showPasswordToggle" style="margin: 0;">Lihat Password</label>
+    <div class="field has-addons">
+        <div class="control is-expanded">
+        <input v-if="showPassword" type="text" id="password" class="input" v-model="password" />
+        <input v-else type="password" id="password" class="input" v-model="password">
+       </div>
+
+       <div class="control">
+         <button class="button" @click="toggleShow"><span class="icon is-small is-right">
+         <i class="fas" :class="{ 'fa-eye-slash': showPassword, 'fa-eye': !showPassword }"></i>
+       </span>
+        </button>
+      </div>
+
     </div>
+    
 
-    <script>
-      document.getElementById("showPasswordToggle").addEventListener("change", function() {
-      var toggleHandle = document.getElementById("toggleHandle");
-      if (this.checked) {
-        toggleHandle.style.left = "22px";
-        toggleHandle.style.backgroundColor = "green"; // Change color when checked
-      } else {
-        toggleHandle.style.left = "2px";
-        toggleHandle.style.backgroundColor = "red"; // Change color when unchecked
-      }
-      myFunction();
-    });
-    </script>
 
     <button id="unlockbutton">Buka Link / Unlock Link</button>
   </div>
@@ -95,5 +88,26 @@
     <a href="https://jstrieb.github.io/link-lock/hidden/" id="hidden" target="_blank"><button>Create hidden bookmark</button></a>
   </div>
 </body>
+
+<script>
+  export default {
+    data() {
+      return {
+        showPassword: false,
+        password: null
+      };
+    },
+    computed: {
+      buttonLabel() {
+        return (this.showPassword) ? "Hide" : "Show";
+      }
+    },
+    methods: {
+      toggleShow() {
+        this.showPassword = !this.showPassword;
+      }
+    }
+  };
+  </script>
 
 </html>
